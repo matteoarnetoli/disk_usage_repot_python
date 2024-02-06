@@ -52,6 +52,23 @@ This means that the value assigned to the variable `directory` should the second
 
 <p align="center"><img width="70%" alt="image" src="https://github.com/matteoarnetoli/disk_usage_repot_python/assets/152484037/efbd8cbf-0ac2-40aa-942a-4432578d28f2">
 
+<h3><p align="center">3.For loop to retrieve directories: </h3>
+
+The goal of this task was to create a `for` loop to access each sub-directory within the main path (`/home`).</b>
+
+For this, I imported `os`, which is a Python built-in module that includes methods for interacting with the operating system, like creating files and directories, fetching their content, changing, and identifying the current directory, and more.</b>
+
+I added a `for` loop to retrieve all the directories and iterate through each one of them to print their full path. In this case, I employed the `os.scandir()` method, which extracts the entries in the directory given by the specified path.</b>
+
+Next, I needed to check if the same entries were actually directories. For this, I employed a conditional statement followed by `.is_dir(follow_symlinks=False)` method. The `follow_symlinks=False` parameter is instructing the script to ignore and omit any symbolic links from the printed list. 
+</b>
+
+
+<p align="center"><img width="60%" alt="image" src="https://github.com/matteoarnetoli/disk_usage_repot_python/assets/152484037/773aeed0-1d08-47ca-ae5c-d0c465e73858">
+
+Results:</b>
+<p align="center"><img width="60%" alt="image" src="https://github.com/matteoarnetoli/disk_usage_repot_python/assets/152484037/9763d5bd-0005-4b85-b60d-ef65e44e3a4b">
+
 
 
 
