@@ -78,19 +78,31 @@ I then assigned the value `0` to the variable `total`, which is going to be retu
 
 There could be instances where an error occur in case a directory is inaccessible, for whatever reason. To avoid script crashes, I used the `try` and except `block`, in conjunction with a conditional statement to check whether the entry encountered by the script, is a directory:</b>
 
-```If entry.is_dir(follow_symlinks=False):
-  total += get_size(entry.path) 
+```
+If entry.is_dir(follow_symlinks=False):
+	total += get_size(entry.path) 
 else:
-	total += entry.stat(follow_symlinks=False).st_size```
- </b>
+	total += entry.stat(follow_symlinks=False).st_size
+```
+</b>
 
-The above would give me the total size of the directories. In case the entry is not a directory, `entry.stat` will provide the statistics of the file that we have encountered, as well as the file size (`.st_size`). </b>
+The above would give me the total size of the directories. In case the entry is not a directory, `entry.stat` will provide the statistics of the file that we have encountered, as well as the file size (`.st_size`).</b>
 
-Finally, I raised the exception, with `e` working as an alias, requesting to print the exception itself. </b>
+Finally, I raised the exception, with `e` working as an alias, requesting to print the exception itself.</b>
 
 <p align="center"><img width="60%" alt="image" src="https://github.com/matteoarnetoli/disk_usage_repot_python/assets/152484037/075c7df3-c863-454c-ae1e-83365dd03d02">
 
+Once the `return` statement was added to close the function, I printed the function itself, right underneath the end of the original `for` loop:</b>
 
+```print(get_size(entry.path))```
+</b>
+
+<p align="center"><img width="60%" alt="image" src="https://github.com/matteoarnetoli/disk_usage_repot_python/assets/152484037/f6f508e8-027f-4c44-9499-a0c15c566daf">
+
+
+Results:</b>
+
+<p align="center"><img width="60%" alt="image" src="https://github.com/matteoarnetoli/disk_usage_repot_python/assets/152484037/9d0b0962-59b7-4047-a09a-21ea8f4760e8">
 
 
 
