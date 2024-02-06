@@ -69,6 +69,28 @@ Next, I needed to check if the same entries were actually directories. For this,
 Results:</b>
 <p align="center"><img width="60%" alt="image" src="https://github.com/matteoarnetoli/disk_usage_repot_python/assets/152484037/9763d5bd-0005-4b85-b60d-ef65e44e3a4b">
 
+<h3><p align="center">4.Determining disk space: </h3>
+
+In this task, I created a function to determine the disk space used by each of the directories previously identified.</b>
+
+I started by defining the function as `get_size` and passing `path` as the argument.
+I then assigned the value `0` to the variable `total`, which is going to be returned at the end of the function. The total size for each directory is going to be determined by repeating the same `for` loop employed to identify the directories (see previous step).</b>
+
+There could be instances where an error occur in case a directory is inaccessible, for whatever reason. To avoid script crashes, I used the `try` and except `block`, in conjunction with a conditional statement to check whether the entry encountered by the script, is a directory:</b>
+
+```If entry.is_dir(follow_symlinks=False):
+  total += get_size(entry.path) 
+else:
+	total += entry.stat(follow_symlinks=False).st_size```
+ </b>
+
+The above would give me the total size of the directories. In case the entry is not a directory, `entry.stat` will provide the statistics of the file that we have encountered, as well as the file size (`.st_size`). </b>
+
+Finally, I raised the exception, with `e` working as an alias, requesting to print the exception itself. </b>
+
+<p align="center"><img width="60%" alt="image" src="https://github.com/matteoarnetoli/disk_usage_repot_python/assets/152484037/075c7df3-c863-454c-ae1e-83365dd03d02">
+
+
 
 
 
