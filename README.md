@@ -2,7 +2,7 @@
 
 <h2>Description and Objectives</h2>
 
-In this project I created Python script to generate a disk usage report on an Ubuntu Linux system. The script was used to measure total disk usage for each file and directory in the system, and generate a CSV file for the report.</b>
+In this project I created a Python script to generate a disk usage report on an Ubuntu Linux system. The script was used to measure total disk usage for each file and directory in the system, and generate a CSV file for the report.</b>
 
 <h2>Project walk-through</h2>
 
@@ -103,6 +103,33 @@ Once the `return` statement was added to close the function, I printed the funct
 Results:</b>
 
 <p align="center"><img width="60%" alt="image" src="https://github.com/matteoarnetoli/disk_usage_repot_python/assets/152484037/9d0b0962-59b7-4047-a09a-21ea8f4760e8">
+
+<h3><p align="center">5.Generate the CSV: </h3>
+
+In the final part of the project, I imported `pandas` library to create the data structure necessary to generate the CSV file containing the disk usage report. `pandas` is most used to work with data sets. It has functions for analysing, cleaning, exploring, and manipulating data.</b>
+
+Into the main program, right underneath the command line argument count, I added two empty lists. `usage` is going to be populated by disk usage information, whilst `paths` is going to include the directory paths. Within the `for` loop below those, I appended the empty lists with, respectively, usage information and entry path information.</b>
+
+Next, within the `usage_dict` variable, I went to set the structure of the dictionary that will be populated with the information coming from `usage` and `paths` lists:</b>
+
+```
+usage_dict = {‘directory’ : paths, ‘usage’ : usage}
+df = pd.DataFrame(usage_dict)
+```
+</b>
+
+Within the variable `df`, `pd.DataFrame` helped to translate the keys and values contained in `usage_dict` into a fixed, bidimensional grid that can be easily overviewed within the final CSV file.</b>
+
+After printing the variable `df`, I exported the final report into CSV by using the following solution:</b>
+
+```df.to_csv(“disk_home_usage.csv”)```
+</b>
+
+<p align="center"><img width="60%" alt="image" src="https://github.com/matteoarnetoli/disk_usage_repot_python/assets/152484037/8caafa4e-cb71-4898-992c-888ffe51dd52">
+
+Results:</b>
+
+<p align="center"><img width="60%" alt="image" src="https://github.com/matteoarnetoli/disk_usage_repot_python/assets/152484037/96907589-2361-44d1-a686-c42f0c7050ab">
 
 
 
